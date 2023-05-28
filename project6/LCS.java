@@ -116,24 +116,28 @@ public class LCS {
 
     int k = maxIndex;
 
-    // System.out.printf("\nMatching:\n '%s':'%s' --- %s\n'%s':'%s' --- %s\n",
-    // a.slice(0, i),
-    // b.slice(0, k),
-    // Arrays.toString(l1),
-    // a.slice(i, a.length()),
-    // b.slice(k, b.length()),
-    // Arrays.toString(l2));
+    System.out.printf("\nMatching:\n '%s':'%s' --- %s\n'%s':'%s' --- %s\n",
+        a.slice(0, i),
+        b.slice(0, k),
+        Arrays.toString(l1),
+        a.slice(i, a.length()),
+        b.slice(k, b.length()),
+        Arrays.toString(l2));
 
     String c1 = lcs(a.slice(0, i), b.slice(0, k));
     String c2 = lcs(a.slice(i, a.length()), b.slice(k, b.length()));
 
-    // System.out.printf("LCS['%s', '%s']=%s \n", a.toString(), b.toString(), c1 +
-    // c2);
+    System.out.printf("LCS['%s', '%s']=%s \n",
+        a.toString(),
+        b.toString(),
+        c1 + c2);
 
     return c1 + c2;
   }
 
   public String find(String A, String B) {
+    System.out.println(A);
+    System.out.println(B);
     return lcs(new Slice(A), new Slice(B));
     // Implement the Hirschberg LCS algorithm
   }
